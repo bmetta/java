@@ -3,8 +3,26 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.Comparator;
 
+/* Resizable-array implementation of the List interface
+ * size, isEmpty, get, set, iterator, and listIterator operations run in constant time
+ * All of the other operations run in linear time
+ */
 class Arraylist {
  public static void main(String[] args) {
+  // Constructors
+  /* ArrayList()
+   * Constructs an empty list with an initial capacity of ten.
+   */
+
+  /* ArrayList(Collection<? extends E> c)
+   * Constructs a list containing the elements of the specified collection,
+   * in the order they are returned by the collection's iterator.
+   */
+
+  /* ArrayList(int initialCapacity)
+   * Constructs an empty list with the specified initial capacity.
+   */
+
   ArrayList<String> al = new ArrayList<String>();
   /* boolean add(E e)
    * Appends the specified element to the end of this list.
@@ -98,10 +116,11 @@ class Arraylist {
    * public Object next();
    * public void remove();
    */
-  Iterator it = al.iterator();
+  Iterator it = al.iterator(); // {One Two Three Four Five Six Four Five Six}
+  //            iterator points @  ^
   while (it.hasNext()) {
     System.out.print(it.next() + " ");
-  } System.out.println();
+  } System.out.println(); // {One Two Three Four Five Six Four Five Six}
 
   /* int lastIndexOf(Object o)
    * Returns the index of the last occurrence of the specified element
@@ -130,13 +149,14 @@ class Arraylist {
   ListIterator litr = al.listIterator();
   while (litr.hasNext()) {
     System.out.print(litr.next() + " ");
-  } System.out.println();
+  } System.out.println(); // {One Two Three Four Five Six Four Five Six}
 
   /* ListIterator<E> listIterator(int index)
    * Returns a list iterator over the elements in this list (in proper sequence),
    * starting at the specified position in the list.
    */
-  ListIterator litrI = al.listIterator(2);
+  ListIterator litrI = al.listIterator(2); // {One Two Three Four Five Six Four Five Six}
+  //                         iterator points @         ^
   while (litrI.hasNext()) {
     System.out.print(litrI.next() + " ");
   } System.out.println();
