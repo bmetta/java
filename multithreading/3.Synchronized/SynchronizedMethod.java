@@ -1,5 +1,7 @@
 /*
  * synchronized keyword provides exclusive locking
+ *
+ * scenario: two ths increments a shared variable
  */
 public class SynchronizedMethod {
   public static void main(String[] args) {
@@ -18,25 +20,25 @@ public class SynchronizedMethod {
   }
 
   public void run() {
-    Thread thread1 = new Thread(new Runnable() {
+    Thread th1 = new Thread(new Runnable() {
       public void run() {
         for (int i = 0; i < 100000; ++i)
           increment();
       }
     });
-    thread1.start();
+    th1.start();
 
-    Thread thread2 = new Thread(new Runnable() {
+    Thread th2 = new Thread(new Runnable() {
       public void run() {
         for (int i = 0; i < 100000; ++i)
           increment();
       }
     });
-    thread2.start();
+    th2.start();
 
     try {
-      thread1.join();
-      thread2.join();
+      th1.join();
+      th2.join();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

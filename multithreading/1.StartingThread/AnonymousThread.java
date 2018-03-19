@@ -1,6 +1,6 @@
 public class AnonymousThread {
   public static void main(String[] args) {
-    Thread thread = new Thread(new Runnable() {
+    Thread th = new Thread(new Runnable() {
       // override
       public void run() {
         for (int i = 0; i < 5; i++) {
@@ -13,7 +13,7 @@ public class AnonymousThread {
         }
       }
     });
-    thread.start();
+    th.start();
 
     new Thread(new Runnable() {
       // override

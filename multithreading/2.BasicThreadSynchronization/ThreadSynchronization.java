@@ -23,11 +23,11 @@ class Runner extends Thread {
 
 public class ThreadSynchronization {
   public static void main(String[] args) {
-    Runner thread = new Runner();
-    thread.start();
+    Runner th = new Runner();
+    th.start();
 
     // wait for the enter key
     new Scanner(System.in).nextLine();
-    thread.shutdown();
+    th.shutdown();
   }
 }

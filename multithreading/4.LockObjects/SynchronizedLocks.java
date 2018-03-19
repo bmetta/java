@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/*
+ * Two threads modifying two variables
+ * each variable needs a synchronized lock
+ */
+
 class Worker {
   private Random random = new Random();
   
@@ -43,30 +48,30 @@ class Worker {
   public void main() {
     long start = System.currentTimeMillis();
 
-    Thread thread1 = new Thread(new Runnable() {
+    Thread th1 = new Thread(new Runnable() {
       public void run() {
         process();
       }
     });
 
-    Thread thread2 = new Thread(new Runnable() {
+    Thread th2 = new Thread(new Runnable() {
       public void run() {
         process();
       }
     });
     
-    thread1.start();
-    thread2.start();
+    th1.start();
+    th2.start();
 
     try {
-      thread1.join();
-      thread2.join();
+      th1.join();
+      th2.join();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
 
     long end = System.currentTimeMillis();
-    System.out.println("Time taken: " + (end - start) + "ms");
+    System.out.println("Time taken: " + (end - start) + " ms");
     System.out.println("List1 size: " + list1.size());
     System.out.println("List2 size: " + list2.size());
   }
