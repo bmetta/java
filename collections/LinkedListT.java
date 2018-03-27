@@ -43,10 +43,17 @@ class LinkedList<T> {
 
 class LinkedListT {
   public static void main(String[] args) {
-    LinkedList<Integer> list = new LinkedList<Integer>();
+    LinkedList<Integer> int_list = new LinkedList<Integer>();
     for (int i = 0; i < 10; ++i) {
-      list.add(i);
+      int_list.add(i);
     }
-    list.display();
+    int_list.display();
+
+    LinkedList<Object> obj_list = new LinkedList<Object>();
+    obj_list.add("Hi");
+    obj_list.add(10);
+    obj_list.add('c');
+    obj_list.add("Hello");
+    obj_list.display();
   }
 }
