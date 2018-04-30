@@ -1,0 +1,38 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/*
+ * Byte Streams
+ * ------------
+ * Java byte streams are used to perform input and output of
+ * 8-bit bytes. Most frequently used classes are
+ *  FileInputStream
+ *  FileOutputStream
+ */
+
+public class FileInputOutputStream {
+  public static void main(String args[]) throws IOException {
+    if (args.length != 2) {
+      System.out.println("Need two parameter");
+      for (String arg : args)
+        System.out.println(arg);
+      System.exit(0);
+    }
+
+    FileInputStream in = null;
+    FileOutputStream out = null;
+    try {
+      in = new FileInputStream(args[0]);
+      out = new FileOutputStream(args[1]);
+
+      int c;
+      while ((c = in.read()) != -1) {
+        out.write(c);
+      }
+    } finally {
+      if (in != null) in.close();
+      if (out != null) out.close();
+    }
+  }
+}
